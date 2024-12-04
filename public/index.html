@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./js/style.css" />
+  </head>
+  <body
+    style="
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    "
+  >
+    <div>
+      <!-- Leaderboard -->
+      <div
+        style="
+          position: absolute;
+          color: black;
+          padding: 12px;
+          font-family: sans-serif;
+          font-size: 14px;
+          user-select: none; /* Prevent text selection for the leaderboard */
+          background: rgba(248, 255, 132, 0.7);
+          border-radius: 8px;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+          right: 10px;
+          top: 10px;
+        "
+      >
+        <div style="margin-bottom: 8px">Leaderboard</div>
+        <div id="playerLabels"></div>
+      </div>
+
+      <!-- Canvas -->
+      <canvas style="user-select: none; cursor: crosshair"></canvas>
+
+      <!-- Username Input -->
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        "
+      >
+        <form id="usernameForm">
+          <div style="margin: 0 auto ;">
+            <img src="img/logo.PNG" alt="logo" style="width: 300px; height: 200; object-fit: cover;" />
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <input
+              id="usernameInput"
+              type="text"
+              placeholder="Username"
+              style="
+                width: 80%; /* Adjust width as needed */
+                max-width: 300px; /* Ensures input doesn't become too wide */
+                padding: 12px;
+                border-radius: 20px;
+                border: none;
+                background: whitesmoke;
+                color: black;
+                user-select: text;
+                text-align: center; /* Centers text inside the input */
+              "
+            />
+          </div>
+          <div style="text-align: center; margin-top: 8px">
+            <button
+              style="
+                padding: 8px 20px;
+                border-radius: 100px;
+                border: none;
+                background: rgba(229, 233, 119, 0.7);
+                color: black;
+                cursor: pointer;
+              "
+            >
+              Start!
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- Username input end -->
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.2/gsap.min.js"
+      integrity="sha512-kVlGhj2qFy+KBCFuvjBJTGUMxbdqJKs4yK2jh0e0VPhWUPiPC87bzm4THmaaIee3Oj7j6sDpTTgm2EPPiESqBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="./js/classes/Enemy.js"></script>
+    <script src="./js/classes/Player.js"></script>
+    <script src="./js/classes/Particle.js"></script>
+    <script src="./js/classes/Projectile.js"></script>
+    <script src="./js/frontend.js"></script>
+    <script src="./js/eventListeners.js"></script>
+  </body>
+</html>
