@@ -90,8 +90,8 @@ io.on('connection', (socket) => {
             sequenceNumber: 0,
             score: 0,
             username,
-            sc_width: screen_width,
-            sc_height: screen_height,
+            sc_width: screen_width || 1920,
+            sc_height: screen_height || 1080,
             canvas: { width, height },
             radius: RADIUS,
         };

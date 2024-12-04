@@ -1,5 +1,7 @@
 let mouseX = 0;
 let mouseY = 0;
+let lastShotTime = 0; // Tracks the last time a shot was fired
+const cooldown = 300; // Cooldown duration in milliseconds (e.g., 500ms)
 
 // Track mouse position relative to the canvas
 document.addEventListener('mousemove', (event) => {
@@ -13,6 +15,14 @@ document.addEventListener('mousemove', (event) => {
 // Shoot when the space bar is pressed
 document.addEventListener('keydown', (event) => {
   if (event.code === 'Space') {
+    const currentTime = Date.now();
+
+    // Check if the cooldown period has passed
+    if (currentTime - lastShotTime < cooldown) {
+      console.log('On cooldown, wait before shooting again');
+      return;
+    }
+
     const canvas = document.querySelector('canvas');
 
     if (!frontEndPlayers[socket.id]) {
@@ -40,5 +50,8 @@ document.addEventListener('keydown', (event) => {
       y: playerPosition.y,
       angle,
     });
+
+    // Update the last shot time
+    lastShotTime = currentTime;
   }
 });
